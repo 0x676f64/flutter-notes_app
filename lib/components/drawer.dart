@@ -14,17 +14,17 @@ class MyDrawer extends StatelessWidget {
           child: Icon(Icons.note),
         ),
           // note title
-          DrawerTitle(
+          DrawerTile(
             title: 'Notes',
             leading: const Icon(Icons.home),
             onTap: () => Navigator.pop(context),
           ),
           // setting title
-          DrawerTitle(
+          DrawerTile(
             title: "Settings",
             leading: const Icon(Icons.settings),
             onTap: () {},
-          )
+          ),
         ],
       ),
 
