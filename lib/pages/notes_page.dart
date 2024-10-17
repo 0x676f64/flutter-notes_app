@@ -52,7 +52,7 @@ class _NotesPageState extends State<NotesPage> {
   void updateNoteDialog(int index) {
     // Pre-fill the text controller with the current note
     textController.text = notes[index];
-    
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -131,32 +131,34 @@ class _NotesPageState extends State<NotesPage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,// this centers the title in the appbar
+        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      backgroundColor: Theme.of(context).colorScheme.surface, 
+      backgroundColor: Theme.of(context).colorScheme.surface,
       floatingActionButton: FloatingActionButton(
         onPressed: createNote,
         mini: false, // You can set this to true for a smaller round button
-        shape: const CircleBorder(),
-        child: const Icon(Icons.add), // Ensures the button remains circular
-        backgroundColor: Colors.grey[400], 
+        shape: const CircleBorder(), // Ensures the button remains circular
+        backgroundColor: Colors.grey[400],
         foregroundColor: Colors.black,
+        child: const Icon(Icons.add),
       ),
       // Displaying the list of notes
+      drawer: const Drawer(),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start, 
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // HEADING 
+          // HEADING
           Padding(
             padding: const EdgeInsets.only(left: 25.0),
             child: Text(
               'Notes',
               style: GoogleFonts.dmSerifText(fontSize: 48,
-              color: Theme.of(context).colorScheme.inversePrimary,
+                color: Theme.of(context).colorScheme.inversePrimary,
               ),
             ),
-          ), 
+          ),
 
-          // LIST OF NOTES 
+          // LIST OF NOTES
           Expanded(
             child: ListView.builder(
               itemCount: notes.length,
